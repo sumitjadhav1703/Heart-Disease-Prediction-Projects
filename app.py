@@ -36,7 +36,7 @@ def inject_styles():
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        .hero-card, .panel-card, .result-card {
+        .hero-card, .panel-card, .result-card, div[data-testid="stVerticalBlockBorderWrapper"] {
             background: rgba(255, 255, 255, 0.92);
             border: 1px solid rgba(15, 76, 92, 0.10);
             border-radius: 24px;
@@ -109,29 +109,30 @@ def render_hero():
 
 
 def render_prediction_form():
-    st.markdown('<div class="panel-card">', unsafe_allow_html=True)
-    st.markdown("### Patient Details")
-    st.caption("Fill in the clinical information below to generate a heart disease risk prediction.")
+    with st.container(border=True):
+        st.markdown("### Patient Details")
+        st.caption(
+            "Fill in the clinical information below to generate a heart disease risk prediction."
+        )
 
-    col1, col2 = st.columns(2, gap="medium")
+        col1, col2 = st.columns(2, gap="medium")
 
-    with col1:
-        age = st.slider("Age", 18, 100, 40)
-        sex = st.selectbox("Sex", ["M", "F"])
-        chest_pain = st.selectbox("Chest Pain Type", ["ATA", "NAP", "TA", "ASY"])
-        resting_bp = st.number_input("Resting Blood Pressure (mm Hg)", 80, 200, 120)
-        cholesterol = st.number_input("Cholesterol (mg/dL)", 100, 600, 200)
-        fasting_bs = st.selectbox("Fasting Blood Sugar > 120 mg/dL", [0, 1])
+        with col1:
+            age = st.slider("Age", 18, 100, 40)
+            sex = st.selectbox("Sex", ["M", "F"])
+            chest_pain = st.selectbox("Chest Pain Type", ["ATA", "NAP", "TA", "ASY"])
+            resting_bp = st.number_input("Resting Blood Pressure (mm Hg)", 80, 200, 120)
+            cholesterol = st.number_input("Cholesterol (mg/dL)", 100, 600, 200)
+            fasting_bs = st.selectbox("Fasting Blood Sugar > 120 mg/dL", [0, 1])
 
-    with col2:
-        resting_ecg = st.selectbox("Resting ECG", ["Normal", "ST", "LVH"])
-        max_hr = st.slider("Max Heart Rate", 60, 220, 150)
-        exercise_angina = st.selectbox("Exercise-Induced Angina", ["Y", "N"])
-        oldpeak = st.slider("Oldpeak (ST Depression)", 0.0, 6.0, 1.0)
-        st_slope = st.selectbox("ST Slope", ["Up", "Flat", "Down"])
+        with col2:
+            resting_ecg = st.selectbox("Resting ECG", ["Normal", "ST", "LVH"])
+            max_hr = st.slider("Max Heart Rate", 60, 220, 150)
+            exercise_angina = st.selectbox("Exercise-Induced Angina", ["Y", "N"])
+            oldpeak = st.slider("Oldpeak (ST Depression)", 0.0, 6.0, 1.0)
+            st_slope = st.selectbox("ST Slope", ["Up", "Flat", "Down"])
 
-    submitted = st.button("Predict Risk", use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
+        submitted = st.button("Predict Risk", use_container_width=True)
 
     return submitted, {
         "age": age,
@@ -149,9 +150,9 @@ def render_prediction_form():
 
 
 def render_info_panel():
-    st.markdown(
-        """
-        <div class="panel-card">
+    with st.container(border=True):
+        st.markdown(
+            """
             <h3 style="margin-top:0;color:#103946;">About This App</h3>
             <p style="color:#4e6771;line-height:1.7;">
                 This dashboard uses a trained K-Nearest Neighbors model to evaluate
@@ -166,10 +167,9 @@ def render_info_panel():
             <p style="color:#7a4b00;background:#fff7e6;border-radius:16px;padding:0.9rem 1rem;margin:0;">
                 Educational ML project only. This app does not replace professional medical advice.
             </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+            """,
+            unsafe_allow_html=True,
+        )
 
 
 def build_raw_input(
@@ -225,30 +225,29 @@ def main():
 
     with form_col:
         submitted, form_values = render_prediction_form()
+        if submitted:
+            raw_input = build_raw_input(
+                age=form_values["age"],
+                sex=form_values["sex"],
+                chest_pain=form_values["chest_pain"],
+                resting_bp=form_values["resting_bp"],
+                cholesterol=form_values["cholesterol"],
+                fasting_bs=form_values["fasting_bs"],
+                resting_ecg=form_values["resting_ecg"],
+                max_hr=form_values["max_hr"],
+                exercise_angina=form_values["exercise_angina"],
+                oldpeak=form_values["oldpeak"],
+                st_slope=form_values["st_slope"],
+            )
+            risk_label = predict_risk_label(raw_input, expected_columns, scaler, model)
+
+            if risk_label == "High Risk":
+                st.error("⚠️ High Risk of Heart Disease")
+            else:
+                st.success("✅ Low Risk of Heart Disease")
 
     with info_col:
         render_info_panel()
-
-    if submitted:
-        raw_input = build_raw_input(
-            age=form_values["age"],
-            sex=form_values["sex"],
-            chest_pain=form_values["chest_pain"],
-            resting_bp=form_values["resting_bp"],
-            cholesterol=form_values["cholesterol"],
-            fasting_bs=form_values["fasting_bs"],
-            resting_ecg=form_values["resting_ecg"],
-            max_hr=form_values["max_hr"],
-            exercise_angina=form_values["exercise_angina"],
-            oldpeak=form_values["oldpeak"],
-            st_slope=form_values["st_slope"],
-        )
-        risk_label = predict_risk_label(raw_input, expected_columns, scaler, model)
-
-        if risk_label == "High Risk":
-            st.error("⚠️ High Risk of Heart Disease")
-        else:
-            st.success("✅ Low Risk of Heart Disease")
 
 
 if __name__ == "__main__":

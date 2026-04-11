@@ -51,31 +51,49 @@ def test_align_input_frame_adds_missing_columns_and_preserves_order():
 
 def test_predict_risk_label_maps_model_output_to_low_risk():
     scaler = Mock()
-    scaler.transform.return_value = np.array([[0.1, 0.2]])
+    transformed_input = np.array([[0.1, 0.2]])
+    scaler.transform.return_value = transformed_input
     model = Mock()
     model.predict.return_value = np.array([0])
+    raw_input = {"Age": 40, "RestingBP": 120}
+    expected_columns = ["Age", "RestingBP"]
 
     label = predict_risk_label(
-        raw_input={"Age": 40},
-        expected_columns=["Age"],
+        raw_input=raw_input,
+        expected_columns=expected_columns,
         scaler=scaler,
         model=model,
     )
 
+    scaler.transform.assert_called_once()
+    aligned_df = scaler.transform.call_args.args[0]
+    assert list(aligned_df.columns) == expected_columns
+    assert aligned_df.loc[0, "Age"] == 40
+    assert aligned_df.loc[0, "RestingBP"] == 120
+    model.predict.assert_called_once_with(transformed_input)
     assert label == "Low Risk"
 
 
 def test_predict_risk_label_maps_model_output_to_high_risk():
     scaler = Mock()
-    scaler.transform.return_value = np.array([[0.4, 0.9]])
+    transformed_input = np.array([[0.4, 0.9]])
+    scaler.transform.return_value = transformed_input
     model = Mock()
     model.predict.return_value = np.array([1])
+    raw_input = {"Age": 62, "RestingBP": 150}
+    expected_columns = ["Age", "RestingBP"]
 
     label = predict_risk_label(
-        raw_input={"Age": 62},
-        expected_columns=["Age"],
+        raw_input=raw_input,
+        expected_columns=expected_columns,
         scaler=scaler,
         model=model,
     )
 
+    scaler.transform.assert_called_once()
+    aligned_df = scaler.transform.call_args.args[0]
+    assert list(aligned_df.columns) == expected_columns
+    assert aligned_df.loc[0, "Age"] == 62
+    assert aligned_df.loc[0, "RestingBP"] == 150
+    model.predict.assert_called_once_with(transformed_input)
     assert label == "High Risk"

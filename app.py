@@ -1,12 +1,16 @@
 import joblib
 import pandas as pd
 import streamlit as st
+from pathlib import Path
+
+
+APP_DIR = Path(__file__).resolve().parent
 
 
 def load_artifacts():
-    model = joblib.load("knn_heart_model.pkl")
-    scaler = joblib.load("heart_scaler.pkl")
-    expected_columns = joblib.load("heart_columns.pkl")
+    model = joblib.load(APP_DIR / "knn_heart_model.pkl")
+    scaler = joblib.load(APP_DIR / "heart_scaler.pkl")
+    expected_columns = joblib.load(APP_DIR / "heart_columns.pkl")
     return model, scaler, expected_columns
 
 

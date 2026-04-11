@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import numpy as np
 
-from app import align_input_frame, build_raw_input, predict_risk_label
+from app import align_input_frame, build_raw_input, predict_risk_label, build_metric_items
 
 
 def test_build_raw_input_creates_expected_encoded_fields():
@@ -97,3 +97,12 @@ def test_predict_risk_label_maps_model_output_to_high_risk():
     assert aligned_df.loc[0, "RestingBP"] == 150
     model.predict.assert_called_once_with(transformed_input)
     assert label == "High Risk"
+
+
+def test_build_metric_items_returns_three_dashboard_badges():
+    items = build_metric_items()
+
+    assert len(items) == 3
+    assert items[0]["label"] == "Model"
+    assert items[1]["label"] == "Interface"
+    assert items[2]["label"] == "Result"

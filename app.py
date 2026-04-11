@@ -55,8 +55,41 @@ def predict_risk_label(raw_input, expected_columns, scaler, model):
 
 def main():
     model, scaler, expected_columns = load_artifacts()
-    st.title("Heart Disease Risk Prediction")
-    st.write("UI implementation arrives in later tasks.")
+    st.title("Heart Stroke Prediction by Sumit")
+    st.markdown("Provide the following details to check your heart stroke risk:")
+
+    age = st.slider("Age", 18, 100, 40)
+    sex = st.selectbox("Sex", ["M", "F"])
+    chest_pain = st.selectbox("Chest Pain Type", ["ATA", "NAP", "TA", "ASY"])
+    resting_bp = st.number_input("Resting Blood Pressure (mm Hg)", 80, 200, 120)
+    cholesterol = st.number_input("Cholesterol (mg/dL)", 100, 600, 200)
+    fasting_bs = st.selectbox("Fasting Blood Sugar > 120 mg/dL", [0, 1])
+    resting_ecg = st.selectbox("Resting ECG", ["Normal", "ST", "LVH"])
+    max_hr = st.slider("Max Heart Rate", 60, 220, 150)
+    exercise_angina = st.selectbox("Exercise-Induced Angina", ["Y", "N"])
+    oldpeak = st.slider("Oldpeak (ST Depression)", 0.0, 6.0, 1.0)
+    st_slope = st.selectbox("ST Slope", ["Up", "Flat", "Down"])
+
+    if st.button("Predict"):
+        raw_input = build_raw_input(
+            age=age,
+            sex=sex,
+            chest_pain=chest_pain,
+            resting_bp=resting_bp,
+            cholesterol=cholesterol,
+            fasting_bs=fasting_bs,
+            resting_ecg=resting_ecg,
+            max_hr=max_hr,
+            exercise_angina=exercise_angina,
+            oldpeak=oldpeak,
+            st_slope=st_slope,
+        )
+        risk_label = predict_risk_label(raw_input, expected_columns, scaler, model)
+
+        if risk_label == "High Risk":
+            st.error("⚠️ High Risk of Heart Disease")
+        else:
+            st.success("✅ Low Risk of Heart Disease")
 
 
 if __name__ == "__main__":

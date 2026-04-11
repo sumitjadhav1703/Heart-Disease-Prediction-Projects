@@ -1,0 +1,81 @@
+from unittest.mock import Mock
+
+import numpy as np
+
+from app import align_input_frame, build_raw_input, predict_risk_label
+
+
+def test_build_raw_input_creates_expected_encoded_fields():
+    raw = build_raw_input(
+        age=45,
+        sex="M",
+        chest_pain="ATA",
+        resting_bp=120,
+        cholesterol=220,
+        fasting_bs=1,
+        resting_ecg="Normal",
+        max_hr=160,
+        exercise_angina="N",
+        oldpeak=1.5,
+        st_slope="Up",
+    )
+
+    assert raw["Age"] == 45
+    assert raw["RestingBP"] == 120
+    assert raw["Cholesterol"] == 220
+    assert raw["FastingBS"] == 1
+    assert raw["MaxHR"] == 160
+    assert raw["Oldpeak"] == 1.5
+    assert raw["Sex_M"] == 1
+    assert raw["ChestPainType_ATA"] == 1
+    assert raw["RestingECG_Normal"] == 1
+    assert raw["ExerciseAngina_N"] == 1
+    assert raw["ST_Slope_Up"] == 1
+
+
+def test_align_input_frame_adds_missing_columns_and_preserves_order():
+    raw = {
+        "Age": 50,
+        "RestingBP": 130,
+        "Sex_F": 1,
+    }
+    expected_columns = ["Age", "RestingBP", "Cholesterol", "Sex_F", "Sex_M"]
+
+    aligned = align_input_frame(raw, expected_columns)
+
+    assert list(aligned.columns) == expected_columns
+    assert aligned.loc[0, "Cholesterol"] == 0
+    assert aligned.loc[0, "Sex_M"] == 0
+    assert aligned.loc[0, "Sex_F"] == 1
+
+
+def test_predict_risk_label_maps_model_output_to_low_risk():
+    scaler = Mock()
+    scaler.transform.return_value = np.array([[0.1, 0.2]])
+    model = Mock()
+    model.predict.return_value = np.array([0])
+
+    label = predict_risk_label(
+        raw_input={"Age": 40},
+        expected_columns=["Age"],
+        scaler=scaler,
+        model=model,
+    )
+
+    assert label == "Low Risk"
+
+
+def test_predict_risk_label_maps_model_output_to_high_risk():
+    scaler = Mock()
+    scaler.transform.return_value = np.array([[0.4, 0.9]])
+    model = Mock()
+    model.predict.return_value = np.array([1])
+
+    label = predict_risk_label(
+        raw_input={"Age": 62},
+        expected_columns=["Age"],
+        scaler=scaler,
+        model=model,
+    )
+
+    assert label == "High Risk"

@@ -215,6 +215,37 @@ def predict_risk_label(raw_input, expected_columns, scaler, model):
     return "High Risk" if prediction == 1 else "Low Risk"
 
 
+def build_result_theme(risk_label):
+    if risk_label == "High Risk":
+        return {
+            "accent": "#b42318",
+            "background": "#fff1f1",
+            "title": "High Risk of Heart Disease",
+        }
+    return {
+        "accent": "#027a48",
+        "background": "#ecfdf3",
+        "title": "Low Risk of Heart Disease",
+    }
+
+
+def render_result_card(risk_label):
+    theme = build_result_theme(risk_label)
+    st.markdown(
+        f"""
+        <div class="result-card" style="border-left:8px solid {theme['accent']};background:{theme['background']};margin-top:1rem;">
+            <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{theme['accent']};">
+                Prediction Result
+            </div>
+            <div style="font-size:1.6rem;font-weight:800;color:#12333d;margin-top:0.3rem;">
+                {theme['title']}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def main():
     st.set_page_config(page_title="Heart Disease Risk Dashboard", layout="wide")
     model, scaler, expected_columns = load_artifacts()
@@ -240,11 +271,7 @@ def main():
                 st_slope=form_values["st_slope"],
             )
             risk_label = predict_risk_label(raw_input, expected_columns, scaler, model)
-
-            if risk_label == "High Risk":
-                st.error("⚠️ High Risk of Heart Disease")
-            else:
-                st.success("✅ Low Risk of Heart Disease")
+            render_result_card(risk_label)
 
     with info_col:
         render_info_panel()

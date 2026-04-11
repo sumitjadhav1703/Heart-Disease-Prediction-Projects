@@ -9,7 +9,7 @@
       "source_file": "app.py",
       "source_location": "L1",
       "id": "app",
-      "community": 0
+      "community": 1
     },
     {
       "label": "load_artifacts()",
@@ -17,7 +17,7 @@
       "source_file": "app.py",
       "source_location": "L10",
       "id": "app_load_artifacts",
-      "community": 0
+      "community": 1
     },
     {
       "label": "build_metric_items()",
@@ -25,7 +25,7 @@
       "source_file": "app.py",
       "source_location": "L17",
       "id": "app_build_metric_items",
-      "community": 0
+      "community": 3
     },
     {
       "label": "inject_styles()",
@@ -33,7 +33,7 @@
       "source_file": "app.py",
       "source_location": "L25",
       "id": "app_inject_styles",
-      "community": 0
+      "community": 1
     },
     {
       "label": "render_hero()",
@@ -41,7 +41,7 @@
       "source_file": "app.py",
       "source_location": "L86",
       "id": "app_render_hero",
-      "community": 0
+      "community": 3
     },
     {
       "label": "render_prediction_form()",
@@ -49,7 +49,7 @@
       "source_file": "app.py",
       "source_location": "L111",
       "id": "app_render_prediction_form",
-      "community": 0
+      "community": 1
     },
     {
       "label": "render_info_panel()",
@@ -57,7 +57,7 @@
       "source_file": "app.py",
       "source_location": "L152",
       "id": "app_render_info_panel",
-      "community": 0
+      "community": 1
     },
     {
       "label": "build_raw_input()",
@@ -65,7 +65,7 @@
       "source_file": "app.py",
       "source_location": "L175",
       "id": "app_build_raw_input",
-      "community": 0
+      "community": 1
     },
     {
       "label": "align_input_frame()",
@@ -84,12 +84,28 @@
       "community": 2
     },
     {
-      "label": "main()",
+      "label": "build_result_theme()",
       "file_type": "code",
       "source_file": "app.py",
       "source_location": "L218",
+      "id": "app_build_result_theme",
+      "community": 4
+    },
+    {
+      "label": "render_result_card()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L232",
+      "id": "app_render_result_card",
+      "community": 4
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L249",
       "id": "app_main",
-      "community": 0
+      "community": 1
     },
     {
       "label": "conftest.py",
@@ -97,7 +113,7 @@
       "source_file": "tests/conftest.py",
       "source_location": "L1",
       "id": "conftest",
-      "community": 3
+      "community": 5
     },
     {
       "label": "test_app.py",
@@ -105,47 +121,63 @@
       "source_file": "tests/test_app.py",
       "source_location": "L1",
       "id": "test_app",
-      "community": 1
+      "community": 0
     },
     {
       "label": "test_build_raw_input_creates_expected_encoded_fields()",
       "file_type": "code",
       "source_file": "tests/test_app.py",
-      "source_location": "L8",
+      "source_location": "L14",
       "id": "test_app_test_build_raw_input_creates_expected_encoded_fields",
-      "community": 1
+      "community": 0
     },
     {
       "label": "test_align_input_frame_adds_missing_columns_and_preserves_order()",
       "file_type": "code",
       "source_file": "tests/test_app.py",
-      "source_location": "L36",
+      "source_location": "L42",
       "id": "test_app_test_align_input_frame_adds_missing_columns_and_preserves_order",
-      "community": 1
+      "community": 0
     },
     {
       "label": "test_predict_risk_label_maps_model_output_to_low_risk()",
       "file_type": "code",
       "source_file": "tests/test_app.py",
-      "source_location": "L52",
+      "source_location": "L58",
       "id": "test_app_test_predict_risk_label_maps_model_output_to_low_risk",
-      "community": 1
+      "community": 0
     },
     {
       "label": "test_predict_risk_label_maps_model_output_to_high_risk()",
       "file_type": "code",
       "source_file": "tests/test_app.py",
-      "source_location": "L77",
+      "source_location": "L83",
       "id": "test_app_test_predict_risk_label_maps_model_output_to_high_risk",
-      "community": 1
+      "community": 0
     },
     {
       "label": "test_build_metric_items_returns_three_dashboard_badges()",
       "file_type": "code",
       "source_file": "tests/test_app.py",
-      "source_location": "L102",
+      "source_location": "L108",
       "id": "test_app_test_build_metric_items_returns_three_dashboard_badges",
-      "community": 1
+      "community": 0
+    },
+    {
+      "label": "test_build_result_theme_for_high_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L120",
+      "id": "test_app_test_build_result_theme_for_high_risk",
+      "community": 0
+    },
+    {
+      "label": "test_build_result_theme_for_low_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L127",
+      "id": "test_app_test_build_result_theme_for_low_risk",
+      "community": 0
     }
   ],
   "links": [
@@ -264,6 +296,30 @@
       "source_location": "L218",
       "weight": 1.0,
       "_src": "app",
+      "_tgt": "app_build_result_theme",
+      "source": "app",
+      "target": "app_build_result_theme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_render_result_card",
+      "source": "app",
+      "target": "app_render_result_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_src": "app",
       "_tgt": "app_main",
       "source": "app",
       "target": "app_main",
@@ -285,7 +341,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L220",
+      "source_location": "L251",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_load_artifacts",
@@ -309,7 +365,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L221",
+      "source_location": "L252",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_inject_styles",
@@ -321,7 +377,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L222",
+      "source_location": "L253",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_render_hero",
@@ -333,7 +389,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L227",
+      "source_location": "L258",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_render_prediction_form",
@@ -345,7 +401,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L250",
+      "source_location": "L277",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_render_info_panel",
@@ -357,7 +413,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L229",
+      "source_location": "L260",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_build_raw_input",
@@ -381,7 +437,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app.py",
-      "source_location": "L242",
+      "source_location": "L273",
       "weight": 1.0,
       "_src": "app_main",
       "_tgt": "app_predict_risk_label",
@@ -390,10 +446,34 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "_src": "app_render_result_card",
+      "_tgt": "app_build_result_theme",
+      "source": "app_build_result_theme",
+      "target": "app_render_result_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_render_result_card",
+      "source": "app_render_result_card",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_app.py",
-      "source_location": "L8",
+      "source_location": "L14",
       "weight": 1.0,
       "_src": "test_app",
       "_tgt": "test_app_test_build_raw_input_creates_expected_encoded_fields",
@@ -405,7 +485,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_app.py",
-      "source_location": "L36",
+      "source_location": "L42",
       "weight": 1.0,
       "_src": "test_app",
       "_tgt": "test_app_test_align_input_frame_adds_missing_columns_and_preserves_order",
@@ -417,7 +497,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_app.py",
-      "source_location": "L52",
+      "source_location": "L58",
       "weight": 1.0,
       "_src": "test_app",
       "_tgt": "test_app_test_predict_risk_label_maps_model_output_to_low_risk",
@@ -429,7 +509,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_app.py",
-      "source_location": "L77",
+      "source_location": "L83",
       "weight": 1.0,
       "_src": "test_app",
       "_tgt": "test_app_test_predict_risk_label_maps_model_output_to_high_risk",
@@ -441,12 +521,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_app.py",
-      "source_location": "L102",
+      "source_location": "L108",
       "weight": 1.0,
       "_src": "test_app",
       "_tgt": "test_app_test_build_metric_items_returns_three_dashboard_badges",
       "source": "test_app",
       "target": "test_app_test_build_metric_items_returns_three_dashboard_badges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_result_theme_for_high_risk",
+      "source": "test_app",
+      "target": "test_app_test_build_result_theme_for_high_risk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_result_theme_for_low_risk",
+      "source": "test_app",
+      "target": "test_app_test_build_result_theme_for_low_risk",
       "confidence_score": 1.0
     }
   ],

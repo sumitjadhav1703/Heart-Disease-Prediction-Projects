@@ -2,7 +2,13 @@ from unittest.mock import Mock
 
 import numpy as np
 
-from app import align_input_frame, build_raw_input, predict_risk_label, build_metric_items
+from app import (
+    align_input_frame,
+    build_metric_items,
+    build_raw_input,
+    build_result_theme,
+    predict_risk_label,
+)
 
 
 def test_build_raw_input_creates_expected_encoded_fields():
@@ -109,3 +115,17 @@ def test_build_metric_items_returns_three_dashboard_badges():
     assert items[1]["value"] == "Streamlit Dashboard"
     assert items[2]["label"] == "Result"
     assert items[2]["value"] == "High / Low Risk"
+
+
+def test_build_result_theme_for_high_risk():
+    theme = build_result_theme("High Risk")
+
+    assert theme["accent"] == "#b42318"
+    assert "High Risk of Heart Disease" in theme["title"]
+
+
+def test_build_result_theme_for_low_risk():
+    theme = build_result_theme("Low Risk")
+
+    assert theme["accent"] == "#027a48"
+    assert "Low Risk of Heart Disease" in theme["title"]

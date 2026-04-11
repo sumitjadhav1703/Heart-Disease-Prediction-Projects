@@ -160,8 +160,8 @@ def main():
     form_col, info_col = st.columns([1.55, 1], gap="large")
 
     with form_col:
-        st.title("Heart Stroke Prediction by Sumit")
-        st.markdown("Provide the following details to check your heart stroke risk:")
+        st.title("Heart Disease Prediction by Sumit")
+        st.markdown("Provide the following details to check your heart disease risk:")
 
         age = st.slider("Age", 18, 100, 40)
         sex = st.selectbox("Sex", ["M", "F"])

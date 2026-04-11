@@ -104,5 +104,8 @@ def test_build_metric_items_returns_three_dashboard_badges():
 
     assert len(items) == 3
     assert items[0]["label"] == "Model"
+    assert items[0]["value"] == "KNN Classifier"
     assert items[1]["label"] == "Interface"
+    assert items[1]["value"] == "Streamlit Dashboard"
     assert items[2]["label"] == "Result"
+    assert items[2]["value"] == "High / Low Risk"

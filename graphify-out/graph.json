@@ -1,0 +1,558 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L1",
+      "id": "app",
+      "community": 1
+    },
+    {
+      "label": "load_artifacts()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L10",
+      "id": "app_load_artifacts",
+      "community": 1
+    },
+    {
+      "label": "build_metric_items()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L17",
+      "id": "app_build_metric_items",
+      "community": 3
+    },
+    {
+      "label": "inject_styles()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L25",
+      "id": "app_inject_styles",
+      "community": 1
+    },
+    {
+      "label": "render_hero()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L86",
+      "id": "app_render_hero",
+      "community": 3
+    },
+    {
+      "label": "render_prediction_form()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L111",
+      "id": "app_render_prediction_form",
+      "community": 1
+    },
+    {
+      "label": "render_info_panel()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L152",
+      "id": "app_render_info_panel",
+      "community": 1
+    },
+    {
+      "label": "build_raw_input()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L175",
+      "id": "app_build_raw_input",
+      "community": 1
+    },
+    {
+      "label": "align_input_frame()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L203",
+      "id": "app_align_input_frame",
+      "community": 2
+    },
+    {
+      "label": "predict_risk_label()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L211",
+      "id": "app_predict_risk_label",
+      "community": 2
+    },
+    {
+      "label": "build_result_theme()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L218",
+      "id": "app_build_result_theme",
+      "community": 4
+    },
+    {
+      "label": "render_result_card()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L232",
+      "id": "app_render_result_card",
+      "community": 4
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "app.py",
+      "source_location": "L249",
+      "id": "app_main",
+      "community": 1
+    },
+    {
+      "label": "conftest.py",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L1",
+      "id": "conftest",
+      "community": 5
+    },
+    {
+      "label": "test_app.py",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L1",
+      "id": "test_app",
+      "community": 0
+    },
+    {
+      "label": "test_build_raw_input_creates_expected_encoded_fields()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L14",
+      "id": "test_app_test_build_raw_input_creates_expected_encoded_fields",
+      "community": 0
+    },
+    {
+      "label": "test_align_input_frame_adds_missing_columns_and_preserves_order()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L42",
+      "id": "test_app_test_align_input_frame_adds_missing_columns_and_preserves_order",
+      "community": 0
+    },
+    {
+      "label": "test_predict_risk_label_maps_model_output_to_low_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L58",
+      "id": "test_app_test_predict_risk_label_maps_model_output_to_low_risk",
+      "community": 0
+    },
+    {
+      "label": "test_predict_risk_label_maps_model_output_to_high_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L83",
+      "id": "test_app_test_predict_risk_label_maps_model_output_to_high_risk",
+      "community": 0
+    },
+    {
+      "label": "test_build_metric_items_returns_three_dashboard_badges()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L108",
+      "id": "test_app_test_build_metric_items_returns_three_dashboard_badges",
+      "community": 0
+    },
+    {
+      "label": "test_build_result_theme_for_high_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L120",
+      "id": "test_app_test_build_result_theme_for_high_risk",
+      "community": 0
+    },
+    {
+      "label": "test_build_result_theme_for_low_risk()",
+      "file_type": "code",
+      "source_file": "tests/test_app.py",
+      "source_location": "L127",
+      "id": "test_app_test_build_result_theme_for_low_risk",
+      "community": 0
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_load_artifacts",
+      "source": "app",
+      "target": "app_load_artifacts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_build_metric_items",
+      "source": "app",
+      "target": "app_build_metric_items",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_inject_styles",
+      "source": "app",
+      "target": "app_inject_styles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_render_hero",
+      "source": "app",
+      "target": "app_render_hero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_render_prediction_form",
+      "source": "app",
+      "target": "app_render_prediction_form",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_render_info_panel",
+      "source": "app",
+      "target": "app_render_info_panel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L175",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_build_raw_input",
+      "source": "app",
+      "target": "app_build_raw_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_align_input_frame",
+      "source": "app",
+      "target": "app_align_input_frame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L211",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_predict_risk_label",
+      "source": "app",
+      "target": "app_predict_risk_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_build_result_theme",
+      "source": "app",
+      "target": "app_build_result_theme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_render_result_card",
+      "source": "app",
+      "target": "app_render_result_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_src": "app",
+      "_tgt": "app_main",
+      "source": "app",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "app",
+      "source": "app",
+      "target": "test_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L251",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_load_artifacts",
+      "source": "app_load_artifacts",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_src": "app_render_hero",
+      "_tgt": "app_build_metric_items",
+      "source": "app_build_metric_items",
+      "target": "app_render_hero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_inject_styles",
+      "source": "app_inject_styles",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L253",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_render_hero",
+      "source": "app_render_hero",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L258",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_render_prediction_form",
+      "source": "app_render_prediction_form",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_render_info_panel",
+      "source": "app_render_info_panel",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_build_raw_input",
+      "source": "app_build_raw_input",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "_src": "app_predict_risk_label",
+      "_tgt": "app_align_input_frame",
+      "source": "app_align_input_frame",
+      "target": "app_predict_risk_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_predict_risk_label",
+      "source": "app_predict_risk_label",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L233",
+      "weight": 1.0,
+      "_src": "app_render_result_card",
+      "_tgt": "app_build_result_theme",
+      "source": "app_build_result_theme",
+      "target": "app_render_result_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "_src": "app_main",
+      "_tgt": "app_render_result_card",
+      "source": "app_render_result_card",
+      "target": "app_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_raw_input_creates_expected_encoded_fields",
+      "source": "test_app",
+      "target": "test_app_test_build_raw_input_creates_expected_encoded_fields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_align_input_frame_adds_missing_columns_and_preserves_order",
+      "source": "test_app",
+      "target": "test_app_test_align_input_frame_adds_missing_columns_and_preserves_order",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_predict_risk_label_maps_model_output_to_low_risk",
+      "source": "test_app",
+      "target": "test_app_test_predict_risk_label_maps_model_output_to_low_risk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_predict_risk_label_maps_model_output_to_high_risk",
+      "source": "test_app",
+      "target": "test_app_test_predict_risk_label_maps_model_output_to_high_risk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_metric_items_returns_three_dashboard_badges",
+      "source": "test_app",
+      "target": "test_app_test_build_metric_items_returns_three_dashboard_badges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_result_theme_for_high_risk",
+      "source": "test_app",
+      "target": "test_app_test_build_result_theme_for_high_risk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_app.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_src": "test_app",
+      "_tgt": "test_app_test_build_result_theme_for_low_risk",
+      "source": "test_app",
+      "target": "test_app_test_build_result_theme_for_low_risk",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

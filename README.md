@@ -82,6 +82,16 @@ Heart-Disease-Prediction-Projects/
 └── README.md              # Project documentation
 ```
 
+## Retraining the model
+
+`heart.ipynb` trains and saves the exact artifacts `app.py` loads (`knn_heart_model.pkl`, `heart_scaler.pkl`, `heart_columns.pkl`). It reads `heart.csv`, the [Heart Failure Prediction dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction) (918 rows), which is not committed; download it next to the notebook first:
+
+```bash
+kaggle datasets download -d fedesoriano/heart-failure-prediction --unzip
+```
+
+The scaler is fitted on the training split only.
+
 ## Quick Start
 
 ### 1. Clone the repository
